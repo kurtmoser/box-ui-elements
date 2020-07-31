@@ -40,7 +40,7 @@ const Footer = ({
 }: Props) => (
     <footer className="bcp-footer">
         <div className="bcp-footer-left">
-            {!isSingleSelect && (
+            {!isSingleSelect && selectedCount > 0 && (
                 <Button className="bcp-selected" onClick={onSelectedClick} type="button">
                     <FormattedMessage
                         className="bcp-selected-count"
@@ -56,23 +56,16 @@ const Footer = ({
             )}
         </div>
         <div className="bcp-footer-right">
-            {children}
-
-            <ButtonGroup className="bcp-footer-actions">
-                <Tooltip text={cancelButtonLabel || <FormattedMessage {...messages.cancel} />}>
+            {selectedCount > 0 && (
+                <ButtonGroup>
                     <Button onClick={onCancel} type="button">
-                        <IconClose height={16} width={16} />
+                        Cancel
                     </Button>
-                </Tooltip>
-                <Tooltip
-                    isDisabled={!selectedCount}
-                    text={chooseButtonLabel || <FormattedMessage {...messages.choose} />}
-                >
-                    <PrimaryButton isDisabled={!selectedCount} onClick={onChoose} type="button">
-                        <IconCheck color="#fff" height={16} width={16} />
+                    <PrimaryButton onClick={onChoose} type="button">
+                        Download
                     </PrimaryButton>
-                </Tooltip>
-            </ButtonGroup>
+                </ButtonGroup>
+            )}
         </div>
     </footer>
 );
