@@ -108,7 +108,7 @@ type State = {
     view: View,
 };
 
-const defaultType = `${TYPE_FILE},${TYPE_WEBLINK}`;
+const defaultType = `${TYPE_FILE},${TYPE_WEBLINK},${TYPE_FOLDER}`;
 
 class ContentPicker extends Component<Props, State> {
     id: string;
