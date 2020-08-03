@@ -18,10 +18,12 @@ const ItemGridCell = ({
     item,
     onItemClick,
     onItemSelect,
+    onItemPick,
     rootId,
     view,
     ...rest
 }: Props) => {
+    const { name = '', picked = false } = item;
     return (
         <figure className="bce-ItemGridCell">
             <ItemGridThumbnail item={item} />
@@ -37,6 +39,14 @@ const ItemGridCell = ({
                     view={view}
                 />
                 <MoreOptions canPreview={canPreview} isSmall item={item} onItemSelect={onItemSelect} {...rest} />
+                <Checkbox
+                    hideLabel
+                    label={name}
+                    name={name}
+                    onChange={() => onItemPick(item)}
+                    value={name}
+                    isChecked={picked}
+                />
             </figcaption>
         </figure>
     );
