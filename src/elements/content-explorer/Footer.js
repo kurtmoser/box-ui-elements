@@ -15,6 +15,7 @@ type Props = {
 };
 
 const Footer = ({
+    pickedCount,
     onBatchCancel,
     onBatchDownload,
     children
@@ -24,14 +25,16 @@ const Footer = ({
             {children}
         </div>
         <div className="bce-footer-right">
-            <ButtonGroup>
-                <Button onClick={onBatchCancel} type="button">
-                    Cancel
-                </Button>
-                <PrimaryButton onClick={onBatchDownload} type="button">
-                    Download
-                </PrimaryButton>
-            </ButtonGroup>
+            {pickedCount > 0 && (
+                <ButtonGroup>
+                    <Button onClick={onBatchCancel} type="button">
+                        Cancel
+                    </Button>
+                    <PrimaryButton onClick={onBatchDownload} type="button">
+                        Download
+                    </PrimaryButton>
+                </ButtonGroup>
+            )}
         </div>
     </footer>
 );
