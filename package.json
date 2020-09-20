@@ -10,7 +10,7 @@
     "jsnext:main": "es/index.js",
     "types": "es/types.d.ts",
     "publishConfig": {
-        "registry": "https://registry.npmjs.org/"
+        "registry": "https://npm.pkg.github.com/"
     },
     "keywords": [
         "box",
